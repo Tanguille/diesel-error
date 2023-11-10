@@ -47,7 +47,7 @@ impl ToSql<diesel::sql_types::Text, diesel::pg::Pg> for Action {
         &'b self,
         out: &mut diesel::serialize::Output<'b, '_, diesel::pg::Pg>,
     ) -> diesel::serialize::Result {
-        todo!()
+        ToSql::<diesel::sql_types::Text, diesel::pg::Pg>::to_sql(&self.as_string(), out)
     }
 }
 
